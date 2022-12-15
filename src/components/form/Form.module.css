@@ -1,0 +1,9 @@
+
+.hForm{
+    text-align: center;
+    margin-top: 3%;
+}
+.formFlex{
+    display: flex;
+    flex-direction: column;
+}
