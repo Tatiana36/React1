@@ -8,6 +8,12 @@
     border: blue;
     padding: 3px;
 }
-.themeProfile{
-    margin-left: 3%;
+
+
+.profileH{
+    padding-right: 30%;
+}
+.profileTheme{
+    display: flex;
+    justify-content: flex-end;
 }

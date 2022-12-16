@@ -1,6 +1,6 @@
 .mainBox {
     display: flex;
-
+    flex-direction: column;
 }
 .hTxt{
     text-align: center;

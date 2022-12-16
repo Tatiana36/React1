@@ -47,8 +47,6 @@ export function ChatList({onAddChat, chats}) {
                     </div>
                 </form>
             </div>
-
-
         </>
     )
 }

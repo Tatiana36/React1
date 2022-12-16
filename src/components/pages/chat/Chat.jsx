@@ -4,16 +4,14 @@ import styles from './Chat.module.css'
 import { Form } from '../../form/Form'
 import { MessageList } from '../../messageList/MessageList'
 import { ChatList} from '../../chatList/ChatList'
-
+import { WithClasses } from '../../HOC/WithClasses'
 import { AUTHOR } from '../../constants'
 
 
 export function Chat ({onAddChat, onAddMessage, messages, chats}) {
-
     const {chatId} = useParams()
 
-
-
+    const MessageListWithClass = WithClasses(MessageList)
     useEffect(() => {
         if (chatId &&
             messages[chatId]?.length > 0 &&
@@ -22,7 +20,7 @@ export function Chat ({onAddChat, onAddMessage, messages, chats}) {
             const timeout = setTimeout(() => {
                 onAddMessage(chatId, {
                     author: AUTHOR.bot,
-                    text: 'Я бот'
+                    text: 'Im BOT'
                 })
             }, 1500)
 
@@ -44,19 +42,18 @@ export function Chat ({onAddChat, onAddMessage, messages, chats}) {
 
     return (
         <>
-
-                <h1 className={styles.hTxt}>Добро пожаловать в чат</h1>
+            <h1 className={styles.hTxt}>Добро пожаловать в чат!</h1>
             <div className={styles.chatBox}>
                 <div>
-                    <ChatList chats={chats} onAddChat={onAddChat} />
+            <ChatList chats={chats} onAddChat={onAddChat} />
                 </div>
                 <div>
-                    <Form addMessage={handleAddMessage} />
-                    <MessageList messages={chatId ? messages[chatId] : []} />
+            <Form addMessage={handleAddMessage} />
+            <MessageListWithClass
+                messages={chatId ? messages[chatId] : []}  />
                 </div>
 
             </div>
-
         </>
     )
 }

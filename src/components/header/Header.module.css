@@ -21,3 +21,9 @@
 .margin{
     margin-left: 20px;
 }
+.headerName{
+    margin-left: 2%;
+    margin-top: -2%;
+    padding-bottom: 1%;
+    color: white;
+}
