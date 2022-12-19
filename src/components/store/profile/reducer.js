@@ -13,6 +13,11 @@ export const profileReducer = (state = initialState, action) => {
                 ...state,
                 name: payload
             }
+        case types.TOGGLE_PROFILE:
+            return {
+                ...state,
+                visible: !state.visible
+            }
 
         default:
             return state

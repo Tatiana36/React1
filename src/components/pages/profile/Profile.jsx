@@ -1,13 +1,15 @@
-import styles from './Profile.module.css';
-import {useContext, useState} from 'react';
-import {ThemeContext} from '../../utils/ThemeContext';
-import { useSelector, useDispatch } from 'react-redux';
-import * as types from '../../store/profile/tupes';
-import { changeName } from '../../store/profile/actions';
+import { useContext, useState } from 'react'
+import { ThemeContext } from '../../utils/ThemeContext'
+import { useSelector, useDispatch } from 'react-redux'
+import * as types from '../../store/profile/tupes'
+import { changeName, toggleProfile } from '../../store/profile/actions'
+import { selectName, selectVisible } from '../../store/profile/selectors'
+import stules from './Profile.module.css'
 
 export function Profile() {
     const { theme, toggleTheme } = useContext(ThemeContext)
-    const name = useSelector((store) => store.name)
+    const name = useSelector(selectName)
+    const visible = useSelector(selectVisible)
     const [value, setValue] = useState('')
     const dispatch = useDispatch()
     const hendleChange = () => {
@@ -18,20 +20,24 @@ export function Profile() {
 
     return (
         <>
-            <div className={styles.profileTheme}>
-            <h1 className={styles.profileH}>Профиль</h1>
-            <p>{theme === 'light' ? '🌞' : '🌙'}</p>
-            <button className={styles.buttonProfile} onClick={toggleTheme}>Сменить тему</button>
+
+            <h1 className={stules.hProfile}>Профиль</h1>
+            <div className={stules.profileTheme}>
+                <p className={stules.temeProfile}>{theme === 'light' ? '🌞' : '🌙'}</p>
+                <button className={stules.buttonProfile} onClick={toggleTheme}>Изменить тему</button>
             </div>
             <hr />
             <h2>{name}</h2>
+            <input className={stules.ProfileCheckbox} type="checkbox" checked={visible} readOnly />
+            <button className={stules.profileButtonCheckbox } onClick={() => dispatch(toggleProfile())} >Изменить имя</button>
+            <br />
             <input
-                autoFocus
+                className={stules.inputProfile}
                 type="text"
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
             />
-            <button className={styles.buttonProfile} onClick={() => dispatch(changeName(value))}>Изменить имя</button>
+            <button className={stules.buttonProfile} onClick={() => dispatch(changeName(value))}>Cменить имя</button>
         </>
     )
 }

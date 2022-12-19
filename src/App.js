@@ -1,15 +1,13 @@
-import { Routes, Route } from 'react-router-dom';
-import { nanoid } from 'nanoid';
-import { Header } from './components/header/Header';
-import { Main } from './components/pages/main/Main';
-import { Profile} from './components/pages/profile/Profile';
-import { Chat } from './components/pages/chat/Chat';
-import { ChatList } from './components/chatList/ChatList';
-import React, { useState } from 'react';
-import { defaultContext, ThemeContext } from './components/utils/ThemeContext';
-import { Provider } from 'react-redux';
-import { store } from './components/store'
-
+import { Routes, Route } from 'react-router-dom'
+import { Header } from './components/header/Header'
+import { Main } from './components/pages/main/Main'
+import { Profile } from './components/pages/profile/Profile'
+import { Chat } from './components/pages/chat/Chat'
+import { ChatList } from './components/chatList/ChatList'
+import { useState } from 'react'
+import { defaultContext, ThemeContext } from './components/utils/ThemeContext'
+import { Provider } from 'react-redux'
+import { store } from './components/store/index'
 
 const degaultMessges = {
     default: [
@@ -28,25 +26,6 @@ export function App () {
     const [messages, setMessages] = useState(degaultMessges)
     const [theme, setTheme] = useState(defaultContext.theme)
 
-    const chats = Object.keys(messages).map((chat) => ({
-        id: nanoid(),
-        name: chat
-    }))
-
-    const onAddChat = (newChat) => {
-        console.log('newChat', newChat)
-        setMessages({
-            ...messages,
-            [newChat.name]: []
-        })
-    }
-
-    const onAddMessage = (chatId, newMassage) => {
-        setMessages({
-            ...messages,
-            [chatId]: [...messages[chatId], newMassage]
-        })
-    }
 
     const toggleTheme = () => {
         setTheme(theme === 'light' ? 'dark' : 'light')
@@ -64,13 +43,10 @@ export function App () {
                             <Route index element={<Main />} />
                             <Route path="profile" element={<Profile />} />
                             <Route path="chats">
-                                <Route index element={<ChatList chats={chats} onAddChat={onAddChat} />} />
+                                <Route index element={<ChatList />} />
                                 <Route
                                     path=":chatId"
-                                    element={<Chat chats={chats}
-                                                        messages={messages}
-                                                        onAddMessage={onAddMessage}
-                                                        onAddChat={onAddChat} />}
+                                    element={<Chat />}
                                 />
                             </Route>
                         </Route>

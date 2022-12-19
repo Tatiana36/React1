@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-export function MessageList ({messages}) {
+export function MessageList({ messages }) {
     console.log('messages', messages)
     return (
         <>

@@ -12,3 +12,12 @@
 .width{
     width: max-content;
 }
+.ChatListButton{
+    color: white;
+    border-color: blue;
+    margin-left: 1%;
+    background-color: blue;
+}
+.chatListLi{
+    text-decoration: none;
+}

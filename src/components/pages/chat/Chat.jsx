@@ -1,60 +1,40 @@
-import { useEffect } from 'react'
+// import { useEffect } from 'react'
 import { useParams, Navigate } from 'react-router-dom'
-import styles from './Chat.module.css'
 import { Form } from '../../form/Form'
 import { MessageList } from '../../messageList/MessageList'
-import { ChatList} from '../../chatList/ChatList'
+import { ChatList } from '../../chatList/ChatList'
+
 import { WithClasses } from '../../HOC/WithClasses'
-import { AUTHOR } from '../../constants'
+import { useSelector } from 'react-redux'
+import { selectMessage } from '../../store/messages/selectors'
+import styles from './Chat.module.css'
 
-
-export function Chat ({onAddChat, onAddMessage, messages, chats}) {
-    const {chatId} = useParams()
+export function Chat() {
+    const { chatId } = useParams()
+    const messages = useSelector(selectMessage)
 
     const MessageListWithClass = WithClasses(MessageList)
-    useEffect(() => {
-        if (chatId &&
-            messages[chatId]?.length > 0 &&
-            messages[chatId][messages[chatId].length - 1].author === AUTHOR.user
-        ) {
-            const timeout = setTimeout(() => {
-                onAddMessage(chatId, {
-                    author: AUTHOR.bot,
-                    text: 'Im BOT'
-                })
-            }, 1500)
 
-            return () => {
-                clearTimeout(timeout)
-            }
-        }
-    }, [chatId, messages])
-
-    const handleAddMessage = (massage) => {
-        if (chatId) {
-            onAddMessage(chatId, massage)
-        }
-    }
-
-    if(chatId && !messages[chatId]) {
+    if (chatId && !messages[chatId]) {
         return <Navigate to="/chats" replace />
     }
 
     return (
         <>
-            <h1 className={styles.hTxt}>Добро пожаловать в чат!</h1>
+
+            <h1 className={styles.hTxt}>Добро пожаловать в чат</h1>
             <div className={styles.chatBox}>
                 <div>
-            <ChatList chats={chats} onAddChat={onAddChat} />
+                    <ChatList />
                 </div>
                 <div>
-            <Form addMessage={handleAddMessage} />
-            <MessageListWithClass
-                messages={chatId ? messages[chatId] : []}  />
+                    <Form />
+                    <MessageListWithClass
+                        messages={chatId ? messages[chatId] : []}
+                        classes={styles.border}
+                    />
                 </div>
-
             </div>
         </>
     )
 }
-
