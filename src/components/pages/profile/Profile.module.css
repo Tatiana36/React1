@@ -1,0 +1,19 @@
+.hProfile{
+    text-align: center;
+}
+.buttonProfile{
+    margin: 10px;
+    background-color: blue;
+    color: white;
+    border: blue;
+    padding: 3px;
+}
+
+
+.profileH{
+    padding-right: 30%;
+}
+.profileTheme{
+    display: flex;
+    justify-content: flex-end;
+}
