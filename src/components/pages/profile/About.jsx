@@ -1,12 +1,12 @@
 import { useContext, useState } from 'react'
-import { ThemeContext } from '../utils/ThemeContext'
+import { ThemeContext } from '../../utils/ThemeContext'
 import { useSelector, useDispatch } from 'react-redux'
-import * as types from '../store/profile/tupes'
-import { changeName, toggleProfile } from '../store/profile/actions'
-import { selectName, selectVisible } from '../store/profile/selectors'
+import * as types from '../../store/profile/tupes'
+import { changeName, toggleProfile } from '../../store/profile/actions'
+import { selectName, selectVisible } from '../../store/profile/selectors'
 import stules from './Profile.module.css'
 
-export function Profile() {
+export function About() {
     const { theme, toggleTheme } = useContext(ThemeContext)
     const name = useSelector(selectName)
     const visible = useSelector(selectVisible)
@@ -21,7 +21,7 @@ export function Profile() {
     return (
         <>
 
-            <h1 className={stules.hProfile}>Профиль</h1>
+            <h1 className={stules.hProfile}>About</h1>
             <div className={stules.profileTheme}>
                 <p className={stules.temeProfile}>{theme === 'light' ? '🌞' : '🌙'}</p>
                 <button className={stules.buttonProfile} onClick={toggleTheme}>Изменить тему</button>
