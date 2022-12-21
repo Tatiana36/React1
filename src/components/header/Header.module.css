@@ -1,0 +1,29 @@
+.header{
+    display: flex;
+    flex-direction: column;
+    background-color: blue;
+
+
+}
+.headerUl{
+    display: flex;
+    justify-content: flex-start;
+
+}
+.headerLi{
+    padding:15px 0 15px 15px;
+    font-size: 120%;
+}
+.headerA{
+    color: white;
+    text-decoration: none;
+}
+.margin{
+    margin-left: 20px;
+}
+.headerName{
+    margin-left: 2%;
+    margin-top: -2%;
+    padding-bottom: 1%;
+    color: white;
+}

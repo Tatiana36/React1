@@ -1,0 +1,42 @@
+.hProfile{
+    text-align: center;
+}
+.buttonProfile{
+    margin: 10px;
+    background-color: blue;
+    color: white;
+    border: blue;
+    padding: 3px;
+    border-radius: 2px;
+}
+
+
+.profileH{
+    padding-right: 30%;
+}
+.profileTheme{
+    display: flex;
+    justify-content: flex-end;
+}
+.profileTheme{
+    margin-left: 3%;
+    margin-top:-2%;
+}
+.ProfileCheckbox{
+  border-color: blue;
+}
+.profileButtonCheckbox{
+    background-color: blue;
+    color: white;
+    border: blue;
+    padding: 3px;
+    border-radius: 2px;
+    margin-left: 1%;
+}
+.inputProfile{
+   border-color: blue;
+}
+.buttonProfile{
+    border-radius: 2px;
+}
+
