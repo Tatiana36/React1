@@ -11,8 +11,6 @@ export function ChatList() {
     const chats = useSelector(selectChat,
         (prev, next) => prev.length === next.length)
 
-    console.log('update chats', chats)
-
     const handleSubmit = (e) => {
         e.preventDefault()
         dispatch(addChat(value))
