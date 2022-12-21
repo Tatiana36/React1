@@ -8,6 +8,7 @@ import { useState } from 'react'
 import { defaultContext, ThemeContext } from './components/utils/ThemeContext'
 import { Provider } from 'react-redux'
 import { store } from './components/store/index'
+import { About } from './components/pages/About'
 
 const degaultMessges = {
     default: [
@@ -42,6 +43,7 @@ export function App () {
                         <Route path='/' element={<Header />}>
                             <Route index element={<Main />} />
                             <Route path="profile" element={<Profile />} />
+                            <Route path="about" element={<Profile />} />
                             <Route path="chats">
                                 <Route index element={<ChatList />} />
                                 <Route
