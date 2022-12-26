@@ -1,7 +1,6 @@
 import { useContext, useState } from 'react'
 import { ThemeContext } from '../../utils/ThemeContext'
 import { useSelector, useDispatch } from 'react-redux'
-import * as types from '../../store/profile/tupes'
 import { changeName, toggleProfile } from '../../store/profile/actions'
 import { selectName, selectVisible } from '../../store/profile/selectors'
 import stules from './Profile.module.css'
@@ -12,11 +11,7 @@ export function Profile() {
     const visible = useSelector(selectVisible)
     const [value, setValue] = useState('')
     const dispatch = useDispatch()
-    const hendleChange = () => {
-        console.log(value)
-        dispatch(changeName(value))
-        setValue('')
-    }
+
 
     return (
         <>
