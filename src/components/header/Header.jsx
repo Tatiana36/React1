@@ -20,6 +20,26 @@ export const navigate = [
         name: 'Чат',
         to: '/chats'
     },
+    {
+        id: 4,
+        name: 'О нас',
+        to: '/about'
+    },
+    {
+        id: 5,
+        name: 'Статьи',
+        to: '/articles'
+    },
+    {
+        id: 6,
+        name: 'Музыка',
+        to: '/singin'
+    },
+    {
+        id: 7,
+        name: 'Регистрация',
+        to: '/signup'
+    },
 ]
 
 export function Header() {

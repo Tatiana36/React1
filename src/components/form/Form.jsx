@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { AUTHOR } from '../constants'
 import { Button } from '../button/Button'
 import { useDispatch } from 'react-redux'
-import { addMessage } from '../store/messages/actions'
+import { addMessage, addMessageWithReply } from '../store/messages/actions'
 import { useParams } from 'react-router-dom'
 import styles from './Form.module.css'
 
@@ -15,7 +15,10 @@ export function Form() {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        dispatch(addMessage(chatId, text))
+        dispatch(addMessageWithReply(chatId, {
+            author: AUTHOR.user,
+            text
+        }))
 
         setText('')
     }
@@ -38,4 +41,5 @@ export function Form() {
 
 Form.propTypes = {
     addMessage: PropTypes.func
+
 }

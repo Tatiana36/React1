@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+
 import styles from './Main.module.css'
 
 export function Main() {
