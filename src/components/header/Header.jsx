@@ -22,8 +22,23 @@ export const navigate = [
     },
     {
         id: 4,
-        name: 'About',
+        name: 'О нас',
         to: '/about'
+    },
+    {
+        id: 5,
+        name: 'Статьи',
+        to: '/articles'
+    },
+    {
+        id: 6,
+        name: 'Музыка',
+        to: '/singin'
+    },
+    {
+        id: 7,
+        name: 'Регистрация',
+        to: '/signup'
     },
 ]
 

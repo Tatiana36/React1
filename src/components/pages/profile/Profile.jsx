@@ -3,7 +3,7 @@ import { ThemeContext } from '../../utils/ThemeContext'
 import { useSelector, useDispatch } from 'react-redux'
 import { changeName, toggleProfile } from '../../store/profile/actions'
 import { selectName, selectVisible } from '../../store/profile/selectors'
-import stules from './Profile.module.css'
+import styles from './Profile.module.css'
 
 export function Profile() {
     const { theme, toggleTheme } = useContext(ThemeContext)
@@ -16,23 +16,23 @@ export function Profile() {
     return (
         <>
 
-            <h1 className={stules.hProfile}>Профиль</h1>
-            <div className={stules.profileTheme}>
-                <p className={stules.temeProfile}>{theme === 'light' ? '🌞' : '🌙'}</p>
-                <button className={stules.buttonProfile} onClick={toggleTheme}>Изменить тему</button>
+            <h1 className={styles.hProfile}>Профиль</h1>
+            <div className={styles.profileTheme}>
+                <p className={styles.temeProfile}>{theme === 'light' ? '🌞' : '🌙'}</p>
+                <button className={styles.buttonProfile} onClick={toggleTheme}>Изменить тему</button>
             </div>
             <hr />
             <h2>{name}</h2>
-            <input className={stules.ProfileCheckbox} type="checkbox" checked={visible} readOnly />
-            <button className={stules.profileButtonCheckbox } onClick={() => dispatch(toggleProfile())} >Изменить имя</button>
+            <input className={styles.ProfileCheckbox} type="checkbox" checked={visible} readOnly />
+            <button className={styles.profileButtonCheckbox } onClick={() => dispatch(toggleProfile())} >Изменить имя</button>
             <br />
             <input
-                className={stules.inputProfile}
+                className={styles.inputProfile}
                 type="text"
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
             />
-            <button className={stules.buttonProfile} onClick={() => dispatch(changeName(value))}>Cменить имя</button>
+            <button className={styles.buttonProfile} onClick={() => dispatch(changeName(value))}>Cменить имя</button>
         </>
     )
 }

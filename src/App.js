@@ -10,7 +10,9 @@ import { useState } from 'react'
 import { defaultContext, ThemeContext } from './components/utils/ThemeContext'
 import { store, persistor } from './components/store/index'
 import { AboutWithConnect } from './components/pages/profile/About'
-
+import { Articles } from './components/pages/articles/Articles'
+import { SingIn } from './components/pages/SignIn'
+import { SignUp } from './components/pages/SignUp'
 
 
 export function App () {
@@ -40,6 +42,9 @@ export function App () {
                                     element={<Chat />}
                                 />
                             </Route>
+                            <Route path="articles" element={<Articles />} />
+                            <Route path="singin" element={<SingIn />} />
+                            <Route path="signup" element={<SignUp />} />
                         </Route>
 
                         <Route path="*" element={<h2>404 Страница не найдена</h2>} />

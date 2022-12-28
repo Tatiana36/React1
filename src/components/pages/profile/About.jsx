@@ -2,7 +2,7 @@ import { useContext, useState } from 'react'
 import { connect } from 'react-redux'
 import { ThemeContext } from '../../utils/ThemeContext'
 import { changeName, toggleProfile } from '../../store/profile/actions'
-import stules from './Profile.module.css'
+import styles from './Profile.module.css'
 
 function About(props) {
     const { theme, toggleTheme } = useContext(ThemeContext)
@@ -12,23 +12,23 @@ function About(props) {
     return (
         <>
 
-            <h1 className={stules.hProfile}>About</h1>
-            <div className={stules.profileTheme}>
-                <p className={stules.temeProfile}>{theme === 'light' ? '🌞' : '🌙'}</p>
-                <button className={stules.buttonProfile} onClick={toggleTheme}>Изменить тему</button>
+            <h1 className={styles.hProfile}>О нас</h1>
+            <div className={styles.profileTheme}>
+                <p className={styles.temeProfile}>{theme === 'light' ? '🌞' : '🌙'}</p>
+                <button className={styles.buttonProfile} onClick={toggleTheme}>Изменить тему</button>
             </div>
             <hr />
             <h2>{props.name}</h2>
-            <input className={stules.ProfileCheckbox} type="checkbox" checked={props.visible} readOnly />
-            <button className={stules.profileButtonCheckbox } onClick={() => props.toggle()} >Изменить имя</button>
+            <input className={styles.ProfileCheckbox} type="checkbox" checked={props.visible} readOnly />
+            <button className={styles.profileButtonCheckbox } onClick={() => props.toggle()} >Изменить имя</button>
             <br />
             <input
-                className={stules.inputProfile}
+                className={styles.inputProfile}
                 type="text"
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
             />
-            <button className={stules.buttonProfile} onClick={() => props.changeName(value)}>Cменить имя</button>
+            <button className={styles.buttonProfile} onClick={() => props.changeName(value)}>Cменить имя</button>
         </>
     )
 }

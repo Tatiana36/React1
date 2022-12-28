@@ -19,6 +19,12 @@ export const profileReducer = (state = initialState, action) => {
                 visible: !state.visible
             }
 
+        case types.IS_AUTH:
+            return {
+                ...state,
+                isAuth: payload
+            }
+
         default:
             return state
     }
