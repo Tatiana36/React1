@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux'
 import { selectMessage } from '../../store/messages/selectors'
 import styles from './Chat.module.css'
 
-export function Chat() {
+export function Chat({messageDB, chats}) {
     const { chatId } = useParams()
     const messages = useSelector(selectMessage)
 

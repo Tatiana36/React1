@@ -2,7 +2,8 @@ import * as types from './tupes'
 
 const initialState = {
     name: 'Иван',
-    visible: true
+    visible: true,
+    isAuth: false
 }
 
 export const profileReducer = (state = initialState, action) => {

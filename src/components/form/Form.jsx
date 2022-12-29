@@ -6,6 +6,9 @@ import { useDispatch } from 'react-redux'
 import { addMessage, addMessageWithReply } from '../store/messages/actions'
 import { useParams } from 'react-router-dom'
 import styles from './Form.module.css'
+import { push } from "firebase/database";
+import { getMessageListById } from '../services/firebase'
+
 
 export function Form() {
     const [text, setText] = useState('')
@@ -19,7 +22,10 @@ export function Form() {
             author: AUTHOR.user,
             text
         }))
-
+        push(getMessageListById(chatId), {
+            author: AUTHOR.user,
+            text
+        })
         setText('')
     }
 

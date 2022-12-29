@@ -22,6 +22,7 @@ export function Profile() {
                 <button className={styles.buttonProfile} onClick={toggleTheme}>Изменить тему</button>
             </div>
             <hr />
+            <div className={styles.box}>
             <h2>{name}</h2>
             <input className={styles.ProfileCheckbox} type="checkbox" checked={visible} readOnly />
             <button className={styles.profileButtonCheckbox } onClick={() => dispatch(toggleProfile())} >Изменить имя</button>
@@ -33,6 +34,7 @@ export function Profile() {
                 onChange={(e) => setValue(e.target.value)}
             />
             <button className={styles.buttonProfile} onClick={() => dispatch(changeName(value))}>Cменить имя</button>
+            </div>
         </>
     )
 }
