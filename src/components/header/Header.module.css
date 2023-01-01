@@ -27,3 +27,18 @@
     padding-bottom: 1%;
     color: white;
 }
+.navlink{
+    margin-left: 3%;
+}
+.divButton{
+    display: flex;
+    flex-direction: row-reverse;
+}
+.hedButton{
+    margin-right: 1%;
+}
+.pHeader{
+    color: white;
+    margin-bottom: 3px;
+    margin-left: 1%;
+}
