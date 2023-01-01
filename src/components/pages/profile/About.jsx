@@ -1,31 +1,26 @@
 import { useContext, useState } from 'react'
+import { connect } from 'react-redux'
 import { ThemeContext } from '../../utils/ThemeContext'
-import { useSelector, useDispatch } from 'react-redux'
 import { changeName, toggleProfile } from '../../store/profile/actions'
-import { selectName, selectVisible } from '../../store/profile/selectors'
 import styles from './Profile.module.css'
 
-export function Profile() {
+function About(props) {
     const { theme, toggleTheme } = useContext(ThemeContext)
-    const name = useSelector(selectName)
-    const visible = useSelector(selectVisible)
     const [value, setValue] = useState('')
-    const dispatch = useDispatch()
 
 
     return (
         <>
 
-            <h1 className={styles.hProfile}>Профиль</h1>
+            <h1 className={styles.hProfile}>О нас</h1>
             <div className={styles.profileTheme}>
                 <p className={styles.temeProfile}>{theme === 'light' ? '🌞' : '🌙'}</p>
                 <button className={styles.buttonProfile} onClick={toggleTheme}>Изменить тему</button>
             </div>
             <hr />
-            <div className={styles.box}>
-            <h2>{name}</h2>
-            <input className={styles.ProfileCheckbox} type="checkbox" checked={visible} readOnly />
-            <button className={styles.profileButtonCheckbox } onClick={() => dispatch(toggleProfile())} >Изменить имя</button>
+            <h2>{props.name}</h2>
+            <input className={styles.ProfileCheckbox} type="checkbox" checked={props.visible} readOnly />
+            <button className={styles.profileButtonCheckbox } onClick={() => props.toggle()} >Изменить имя</button>
             <br />
             <input
                 className={styles.inputProfile}
@@ -33,8 +28,19 @@ export function Profile() {
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
             />
-            <button className={styles.buttonProfile} onClick={() => dispatch(changeName(value))}>Cменить имя</button>
-            </div>
+            <button className={styles.buttonProfile} onClick={() => props.changeName(value)}>Cменить имя</button>
         </>
     )
 }
+
+const mapStateToProps = (state) => ({
+    name: state.profile.name,
+    visible: state.profile.visible
+})
+
+const mapDispatchToProps = (dispatch) => ({
+    toggle: () => dispatch(toggleProfile()),
+    changeName: value => dispatch(changeName(value))
+})
+
+export const AboutWithConnect = connect(mapStateToProps, mapDispatchToProps)(About)

@@ -1,4 +1,4 @@
-// import { useEffect } from 'react'
+
 import { useParams, Navigate } from 'react-router-dom'
 import { Form } from '../../form/Form'
 import { MessageList } from '../../messageList/MessageList'
@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux'
 import { selectMessage } from '../../store/messages/selectors'
 import styles from './Chat.module.css'
 
-export function Chat() {
+export function Chat({messageDB, chats}) {
     const { chatId } = useParams()
     const messages = useSelector(selectMessage)
 
