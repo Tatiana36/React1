@@ -24,7 +24,7 @@ describe('testing Button', () => {
         render(
             <>
                 <Button>Edit</Button>
-                <Button>Delete</Button>
+                <Button>Удалить</Button>
             </>
         )
         expect(screen.queryAllByRole('button').length).toBe(2)
